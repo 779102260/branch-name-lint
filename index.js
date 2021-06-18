@@ -63,6 +63,11 @@ class BranchNameLint {
     if (!this.validateWithRegex()) {
       return this.error(this.options.msgBranchDisallowed, this.branch, this.options.regex);
     }
+		
+		// 完全使用正则匹配
+		if (this.options.regex) {
+			return
+		}
 
     if (this.options.prefixes.includes(prefix) === false) {
       if (this.options.suggestions[prefix]) {
